@@ -18,7 +18,7 @@ function configure_firewall (){
 	if [ $DISTRO == 'centos' ] || [ $DISTRO == 'redhat' ]; then
 		if [ $RELEASE -ge 7 ]; then
 			##firewalld
-			sudo bash -c "firewall-cmd --zone=public --add-rich-rule='rule family=ipv4 source address="$source_addr" port port="$dest_port" protocol="$dest_proto" accept'"
+			sudo bash -c "firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address="$source_addr" port port="$dest_port" protocol="$dest_proto" accept'"
 			sudo firewall-cmd --reload
 		else
 			##iptables
