@@ -1,0 +1,6 @@
+include /usr/share/nano-syntax-highlighting/*.nanorc
+set constantshow
+set smooth
+set autoindent
+set backup
+set tabstospaces
