@@ -1,3 +1,7 @@
+- src: powerdns.pdns
+- src: powerdns.dnsdist
+- src: powerdns.pdns_recursor
+- src: powerdns.metronome
 - src: unxnn.ssh
 - src: unxnn.chrony
 - src: marcelnijenhof.firewalld
@@ -11,7 +15,6 @@
 - src: geerlingguy.pip
 - src: geerlingguy.repo-epel
 - src: geerlingguy.repo-remi
-- src: geerlingguy.composer
 - src: geerlingguy.pip
 - src: geerlingguy.exim
 - src: geerlingguy.git
@@ -21,7 +24,6 @@
 - src: florianutz.ubuntu1604-cis
 - src: vmulasmob.rhel7_cis
 - src: ipr-cnrs.nftables
-- src: timorunge.freeipa_server
 - src: infopen.fail2ban
 - src: mrlesmithjr.quagga
 - src: afrinic.exabgp
@@ -32,8 +34,6 @@
 - src: dev-sec.os-hardening
 - src: dev-sec.nginx-hardening
 - src: dev-sec.mysql-hardening
-- src: sbaerlocher.snmp
-- src: rhaamo.snmpd
 - src: diodonfrost.mariadb
 - src: amtega.linux_ad_auth
 - src: nginxinc.nginx
@@ -41,18 +41,14 @@
 - src: robertdebock.dns
 - src: robertdebock.update
 - src: petermosmans.apache2
-- src: deekayen.chocolatey
-- src: dj-wasabi.zabbix-agent
 - src: deekayen.cleanmgr
 - src: smiller171.manage_users
-- src: ansible.kubernetes-modules 
 - src: ahuffman.resolv
 - src: bertvv.bind
 - src: sansible.rsyslog
 - src: weareinteractive.environment
 - src: weareinteractive.apt
 - src: oefenweb.sysctl
-- src: install anxs.perl
 - src: ahuffman.sudoers
 - src: mrlesmithjr.phpipam
 - src: stackhpc.os-images
