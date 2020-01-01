@@ -4,9 +4,9 @@
 - src: powerdns.metronome
 - src: unxnn.ssh
 - src: unxnn.chrony
+- src: likg.csf
 - src: marcelnijenhof.firewalld
 - src: geerlingguy.firewall
-- src: likg.csf
 - src: geerlingguy.docker
 - src: geerlingguy.mysql
 - src: geerlingguy.security
@@ -23,7 +23,6 @@
 - src: florianutz.ubuntu1604-cis
 - src: vmulasmob.rhel7_cis
 - src: ipr-cnrs.nftables
-- src: infopen.fail2ban
 - src: mrlesmithjr.quagga
 - src: arillso.ntp
 - src: arillso.chocolatey
