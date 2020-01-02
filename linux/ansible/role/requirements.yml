@@ -2,6 +2,7 @@
 - src: powerdns.dnsdist
 - src: powerdns.pdns_recursor
 - src: powerdns.metronome
+- src: softasap.sa-vpn-softether
 - src: unxnn.ssh
 - src: unxnn.chrony
 - src: likg.csf
