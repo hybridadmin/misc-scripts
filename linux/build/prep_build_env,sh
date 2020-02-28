@@ -37,7 +37,6 @@ else
         #https://www.gnupg.org/documentation/manuals/gnupg-devel/Unattended-GPG-key-generation.html
         export GNUPGHOME="$(mktemp -d)"
 
-
 cat >/tmp/gpg-key-params <<EOF
     %echo Generating a basic OpenPGP key
     Key-Type: RSA
