@@ -67,7 +67,8 @@ function configure_shell_profile(){
 
 function main() {
         install_dependencies
-        install_from_deb
+        #install_from_deb
+        install_from_repo
         configure_shell_profile
 }
 
