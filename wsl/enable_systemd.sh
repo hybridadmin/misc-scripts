@@ -59,7 +59,9 @@ function configure_shell_profile(){
         else
                 PROFILE_FILE="/etc/profile"
         fi
+
         echo -e "if [[ ! -v INSIDE_GENIE ]]; then\n\t exec /usr/bin/genie -s\nfi" | sudo tee -a $PROFILE_FILE > /dev/null
+
         if [ -d "/mnt/c" ]; then
                 echo "start /min wsl genie -i" | tee "/mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start-wsl-genie.bat"
         fi
@@ -67,8 +69,13 @@ function configure_shell_profile(){
 
 function main() {
         install_dependencies
-        #install_from_deb
-        install_from_repo
+
+	STATUS_CODE=$(curl -v -I https://arkane-systems.github.io/wsl-transdebian/apt | grep HTTP | awk '{print $2}')
+	if [ -n $STATUS_CODE ] && [[ $STATUS_CODE == 301 || $STATUS_CODE == 200 ]] ; then
+        	install_from_repo
+	else
+		install_from_deb
+	fi
         configure_shell_profile
 }
 
