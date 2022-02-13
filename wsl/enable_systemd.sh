@@ -25,15 +25,15 @@ function install_from_deb() {
 }
 
 function install_from_repo() {
-        wget -O /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg
-        chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
+        sudo curl -fsSL https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg -o /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
+        sudo chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
 
-cat << EOF > /etc/apt/sources.list.d/wsl-transdebian.list
+sudo tee -a /etc/apt/sources.list.d/wsl-transdebian.list > /dev/null << EOL
 deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
 deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
-EOF
+EOL
 
-        apt update && sudo apt install -y systemd-genie
+        sudo apt update && sudo apt install -y systemd-genie
 }
 
 function install_dependencies() {
@@ -47,7 +47,7 @@ function install_dependencies() {
         sudo apt-get install apt-transport-https
         sudo apt-get update
         sudo apt-get install -y \
-          daemonize dbus policykit-1 systemd util-linux systemd-container dotnet-runtime-5.0 lsb_release
+          daemonize dbus policykit-1 systemd util-linux systemd-container dotnet-runtime-5.0 lsb-release
 
         sudo rm -f /usr/sbin/daemonize
         sudo ln -s /usr/bin/daemonize /usr/sbin/daemonize
@@ -63,7 +63,7 @@ function configure_shell_profile(){
         echo -e "if [[ ! -v INSIDE_GENIE ]]; then\n\t exec /usr/bin/genie -s\nfi" | sudo tee -a $PROFILE_FILE > /dev/null
 
         if [ -d "/mnt/c" ]; then
-                echo "start /min wsl genie -i" | tee "/mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start-wsl-genie.bat"
+                echo "start /min wsl genie -i" | sudo tee /mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start-wsl-genie.bat
         fi
 }
 
