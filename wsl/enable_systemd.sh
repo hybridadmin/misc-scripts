@@ -67,6 +67,7 @@ sudo tee /mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start
 start /wait /min wsl genie -i
 start /wait /min diskpart /s c:\ProgramData\mount-disk.bat
 start /wait /min wsl --mount \\.\PHYSICALDRIVE1 --bare
+start /wait /min wsl --user root mount /home/meister/data-vol
 EOL
 
 sudo tee -a /mnt/c/ProgramData/mount-disk.bat > /dev/null << EOL
