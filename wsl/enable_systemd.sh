@@ -63,8 +63,16 @@ function configure_shell_profile(){
         echo -e "if [[ ! -v INSIDE_GENIE ]]; then\n\t exec /usr/bin/genie -s\nfi" | sudo tee -a $PROFILE_FILE > /dev/null
 
         if [ -d "/mnt/c" ]; then
-                echo -e "start /min wsl genie -i\ndiskpart /s /mnt/c/ProgramData/mount-disk.bat" | sudo tee /mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start-wsl-genie.bat
-		echo -e "select vdisk file=C:\ProgramData\wsl-disks\wsl-data-dsk.vhdx\nattach vdisk" | sudo tee /mnt/c/ProgramData/mount-disk.bat
+sudo tee /mnt/c/ProgramData/Microsoft/Windows/Start\ Menu/Programs/Startup/start-wsl-genie2.bat > /dev/null << EOL
+start /wait /min wsl genie -i
+start /wait /min diskpart /s c:\ProgramData\mount-disk.bat
+start /wait /min wsl --mount \\.\PHYSICALDRIVE1 --bare
+EOL
+
+sudo tee -a /mnt/c/ProgramData/mount-disk.bat > /dev/null << EOL
+select vdisk file=C:\ProgramData\wsl-disks\wsl-data-dsk.vhdx
+attach vdisk
+EOL
         fi
 }
 
